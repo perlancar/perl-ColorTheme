@@ -6,6 +6,7 @@ package Color::Theme::Role;
 use 5.010001;
 use Moo::Role;
 
+use Color::ANSI::Util qw(ansi24bfg ansi24bbg);
 with 'Term::App::Role::Attrs';
 
 has color_theme_args  => (is => 'rw', default => sub { {} });
