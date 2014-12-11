@@ -6,7 +6,7 @@ package Color::Theme::Role::ANSI;
 use 5.010001;
 use Moo::Role;
 
-use Color::ANSI::Util qw(ansi24bfg ansi24bbg);
+use Color::ANSI::Util ();
 with 'Color::Theme::Role';
 with 'Term::App::Role::Attrs';
 
@@ -21,38 +21,47 @@ sub theme_color_to_ansi {
     if ($coldepth >= 2**24) {
         if (ref $c) {
             my $ansifg = $c->{ansi_fg};
-            $ansifg //= ansi24bfg($c->{fg}) if defined $c->{fg};
+            $ansifg //= Color::ANSI::Util::ansi24bfg($c->{fg})
+                if defined $c->{fg};
             $ansifg //= "";
             my $ansibg = $c->{ansi_bg};
-            $ansibg //= ansi24bbg($c->{bg}) if defined $c->{bg};
+            $ansibg //= Color::ANSI::Util::ansi24bbg($c->{bg})
+                if defined $c->{bg};
             $ansibg //= "";
             $c = $ansifg . $ansibg;
         } else {
-            $c = $is_bg ? ansi24bbg($c) : ansi24bfg($c);
+            $c = $is_bg ? Color::ANSI::Util::ansi24bbg($c) :
+                Color::ANSI::Util::ansi24bfg($c);
         }
     } elsif ($coldepth >= 256) {
         if (ref $c) {
             my $ansifg = $c->{ansi_fg};
-            $ansifg //= ansi256fg($c->{fg}) if defined $c->{fg};
+            $ansifg //= Color::ANSI::Util::ansi256fg($c->{fg})
+                if defined $c->{fg};
             $ansifg //= "";
             my $ansibg = $c->{ansi_bg};
-            $ansibg //= ansi256bg($c->{bg}) if defined $c->{bg};
+            $ansibg //= Color::ANSI::Util::ansi256bg($c->{bg})
+                if defined $c->{bg};
             $ansibg //= "";
             $c = $ansifg . $ansibg;
         } else {
-            $c = $is_bg ? ansi256bg($c) : ansi256fg($c);
+            $c = $is_bg ? Color::ANSI::Util::ansi256bg($c) :
+                Color::ANSI::Util::ansi256fg($c);
         }
     } else {
         if (ref $c) {
             my $ansifg = $c->{ansi_fg};
-            $ansifg //= ansi16fg($c->{fg}) if defined $c->{fg};
+            $ansifg //= Color::ANSI::Util::ansi16fg($c->{fg})
+                if defined $c->{fg};
             $ansifg //= "";
             my $ansibg = $c->{ansi_bg};
-            $ansibg //= ansi16bg($c->{bg}) if defined $c->{bg};
+            $ansibg //= Color::ANSI::Util::ansi16bg($c->{bg})
+                if defined $c->{bg};
             $ansibg //= "";
             $c = $ansifg . $ansibg;
         } else {
-            $c = $is_bg ? ansi16bg($c) : ansi16fg($c);
+            $c = $is_bg ? Color::ANSI::Util::ansi16bg($c) :
+                Color::ANSI::Util::ansi16fg($c);
         }
     }
     $c;
@@ -61,7 +70,7 @@ sub theme_color_to_ansi {
 sub get_theme_color_as_ansi {
     my ($self, $item_name, $args) = @_;
     my $c = $self->get_theme_color($item_name) // '';
-    $self->_themecol2ansi(
+    $self->theme_color_to_ansi(
         $c, {name=>$item_name, %{ $args // {} }},
         $item_name =~ /_bg$/);
 }
