@@ -16,6 +16,12 @@ sub theme_color_to_ansi {
     # empty? skip
     return '' if !defined($c) || !length($c);
 
+    # resolve coderef color
+    if (ref($c) eq 'CODE') {
+        $args //= {};
+        $c = $c->($self, %$args);
+    }
+
     my $coldepth = $self->color_depth;
 
     if ($coldepth >= 2**24) {
@@ -69,10 +75,11 @@ sub theme_color_to_ansi {
 
 sub get_theme_color_as_ansi {
     my ($self, $item_name, $args) = @_;
-    my $c = $self->get_theme_color($item_name) // '';
     $self->theme_color_to_ansi(
-        $c, {name=>$item_name, %{ $args // {} }},
-        $item_name =~ /_bg$/);
+        $self->get_theme_color($item_name),
+        {name=>$item_name, %{ $args // {} }},
+        $item_name =~ /_bg$/,
+    );
 }
 
 1;

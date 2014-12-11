@@ -64,7 +64,7 @@ sub get_theme_color {
     my ($self, $item_name) = @_;
 
     return undef if $self->{color_theme}{no_color};
-    return $self->{color_theme}{colors}{$item_name};
+    $self->{color_theme}{colors}{$item_name};
 }
 
 sub get_theme_color_as_rgb {
@@ -72,6 +72,7 @@ sub get_theme_color_as_rgb {
     my $c = $self->get_theme_color($item_name);
     return undef unless defined($c);
 
+    # resolve coderef color
     if (ref($c) eq 'CODE') {
         $args //= {};
         $c = $c->($self, %$args);
