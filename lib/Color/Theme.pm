@@ -11,6 +11,7 @@ package Color::Theme;
 This module specifies a structure for color themes. The distribution also comes
 with utility routines and roles for managing color themes in applications.
 
+
 =head1 SPECIFICATION
 
 Color theme is a L<DefHash> containing these keys: C<v> (float, should be 1.1),
@@ -35,4 +36,3 @@ L<Text::ANSITable::ColorTheme::Demo>. Code will be called with C<< ($self,
 %args) >> where C<%args> contains various information, like C<name> (the item
 name being requested), etc. In Text::ANSITable, you can get the row position
 from C<< $self->{_draw}{y} >>.
-
