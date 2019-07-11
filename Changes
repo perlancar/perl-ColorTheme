@@ -1,11 +1,11 @@
-0.10.1  2018-02-25 (PERLANCAR)
+0.10.1  2018-02-25  Released-By: PERLANCAR
 
         - No spec changes.
 
         - Split Color::Theme::Util and Color::Theme::Role::* to their own dists.
 
 
-0.01    2014-12-11 (PERLANCAR)
+0.01    2014-12-11  Released-By: PERLANCAR
 
         - First release, split from SHARYANTO-Roles and renamed module from
           SHARYANTO::Role::ColorTheme to Color::Theme::Role. Some other changes:
