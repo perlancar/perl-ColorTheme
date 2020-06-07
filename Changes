@@ -8,7 +8,7 @@
           theme structure must be put in %THEME (instead of the old
           %color_themes).
 
-        - Color theme module must not be a class that is instantiated. It can
+        - Color theme module must now be a class that is instantiated. It can
           accept arguments ("parameterized color theme").
 
         - Support dynamic theme (where the list of items cannot be fully
