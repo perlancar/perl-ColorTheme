@@ -1,3 +1,21 @@
+2.0.0   2020-06-07  Released-By: PERLANCAR; Backward-Compatible: no
+
+        - Renamed from Color-Theme to ColorTheme.
+
+        - Bump specification version from 0.10 to 2.
+
+        - Color theme module must now only contain a single theme. The color
+          theme structure must be put in %THEME (instead of the old
+          %color_themes).
+
+        - Color theme module must not be a class that is instantiated. It can
+          accept arguments ("parameterized color theme").
+
+        - Support dynamic theme (where the list of items cannot be fully
+          retrieved from C<colors> property of %THEME, but from
+          get_color_list().
+
+
 0.10.1  2018-02-25  Released-By: PERLANCAR
 
         - No spec changes.
