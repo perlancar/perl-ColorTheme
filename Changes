@@ -1,3 +1,12 @@
+2.0.1   2020-06-08  Released-By: PERLANCAR; Backward-Compatible: no
+
+        - Revise.
+
+        - Specify 'args' property in the color theme structure.
+
+        - [incompatible change] Rename method get_color_list() to list_items().
+
+
 2.0.0   2020-06-07  Released-By: PERLANCAR; Backward-Compatible: no
 
         - Renamed from Color-Theme to ColorTheme.
