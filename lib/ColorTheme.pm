@@ -114,6 +114,17 @@ Usage:
 Provide a method way of getting the L</color theme structure>. A client can also
 access the C<%THEME> package variable directly.
 
+=item * get_args
+
+Usage:
+
+ my $theme_class_args = $theme_class->get_args;
+
+Provide a method way of getting the arguments to the constructor. The official
+implementation L<ColorThemeBase::Constructor> stores this in the 'args' key of
+the hash object, but the proper way to access the arguments should be via this
+method.
+
 =item * list_items
 
 Usage:
