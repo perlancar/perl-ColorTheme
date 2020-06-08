@@ -13,6 +13,12 @@ package ColorTheme;
 This document specifies a way to create and use color themes.
 
 
+=head1 SPECIFICATION STATUS
+
+The series 2.x version is still unstable. API might still change between
+releases.
+
+
 =head1 SPECIFICATION VERSION
 
 2
