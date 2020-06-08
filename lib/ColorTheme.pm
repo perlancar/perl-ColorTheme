@@ -115,15 +115,13 @@ Usage:
 Must return list of item names provided by theq theme. Each item has a color
 associated with it and the color can be retrieved using L</get_color>.
 
-=item * get_color
+=item * get_item_color
 
 Usage:
 
- my $color = $theme_class->get_color($item_name [ , \%args ]);
+ my $color = $theme_class->get_item_color($item_name [ , \%args ]);
 
-Get color for an item. The color can be a single RGB value, e.g. C<ffcc00> or a
-DefHash e.g. C<< {fg=>'ffcc00', bg=>'333333', summary=>'...'} >> (all keys
-optional).
+Get color for an item. See L<Item color>.
 
 =back
 
