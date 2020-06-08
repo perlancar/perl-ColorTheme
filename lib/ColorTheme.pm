@@ -154,25 +154,41 @@ of the important or relevant properties: C<req>, C<schema>, C<default>.
 =item * dynamic
 
 Boolean, optional. Must be set to true if the theme class is dynamic, i.e. the
-L</colors> property does not contain all (or even any) of the items of the
-theme. Client must call L</list_items> to list all the items in the theme.
+L</items> property does not contain all (or even any) of the items of the theme.
+Client must call L</list_items> to list all the items in the theme.
 
-=item * colors
+=item * items
 
-Required. Hash of item names as keys and colors as values.
+Required. Hash of item names as keys and item colors as values. See L</Item
+color>.
 
-Color can be a single RGB value, e.g. C<ffcc00> or a DefHash e.g. C<<
-{fg=>'ffcc00', bg=>'cc0000', ansi_fg=>..., ansi_bg=>..., summary=>..., ...} >>
-(all keys optional) or a coderef. The coderef will be supplied arguments of
-L</get_color> and is expected to retruen an RGB string or a DefHash.
+=back
 
-A DefHash color containing multiple color codes is used to support specifying
-foreground/background values or ANSI color codes that are not representable by
-RGB, among other things. You can also put summary and additional information in
-the DefHash.
+=head2 Item color
+
+The color of an item can be one of three things.
+
+First, the simplest, a single RGB value in the form of 6-hexdigit string, e.g.
+C<ffcc00>.
+
+Second, a DefHash called "item colors hash" containing one or more of these
+properties: C<fg> (foreground RGB color), C<bg> (background RGB color),
+C<ansi_fg> (foreground ANSI escape sequence string), C<ansi_bg> (background ANSI
+escape sequence string). It can also contain additional information like
+C<summary> (a summary describing the item), C<description>, C<tags>, and so on.
+Properties like C<ansi_fg> and C<ansi_bg> are used to support specifying things
+that are not representable by RGB, e.g. reverse or bold.
+
+Third, a coderef which if called is expected to return one of the two formerly
+mentioned value (RGB string or the "item colors hash"). A coderef cannot return
+another coderef. Coderef will be called with arguments C<< ($self, $name,
+\%args) >> where C<$self> is the color theme class (from which you can access
+the color theme structure as well as arguments to the constructor), C<$name> is
+the item name requested, and C<\%args> is hashref to additional, per-item
+arguments.
 
 Allowing coderef as color allows for flexibility, e.g. for doing gradation
-border color, random color, etc.
+border color, random color, context-sensitive color, etc.
 
 =back
 
