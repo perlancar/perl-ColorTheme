@@ -105,6 +105,15 @@ Usage:
 Constructor. Known arguments will depend on the particular theme class and must
 be specified in the color theme structure under the C<args> key.
 
+=item * get_struct
+
+Usage:
+
+ my $theme_struct = $theme_class->get_struct;
+
+Provide a method way of getting the L</color theme structure>. A client can also
+access the C<%THEME> package variable directly.
+
 =item * list_items
 
 Usage:
