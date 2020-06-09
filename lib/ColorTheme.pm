@@ -28,7 +28,7 @@ releases.
 
 =head2 color theme
 
-Essentially, a mapping of item names and color codes. For example, a color theme
+Essentially, a mapping of item names and item colors. For example, a color theme
 for syntax-coloring JSON might be something like:
 
  {
