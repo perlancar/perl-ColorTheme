@@ -214,8 +214,6 @@ arguments.
 Allowing coderef as color allows for flexibility, e.g. for doing gradation
 border color, random color, context-sensitive color, etc.
 
-=back
-
 
 =head1 HISTORY
 

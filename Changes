@@ -1,3 +1,19 @@
+2.1.0   2020-06-09  Released-By: PERLANCAR; Urgency: medium; Backward-Compatible: no
+
+	- [incompatible] Rename get_color() to get_item_color() to be more
+	  specific.
+
+	- Add get_args(), get_struct().
+
+	- [incompatible] Color theme structure: rename property 'colors' to
+	  'items' to avoid confusion with "item colors hash".
+
+        - Define "item colors hash" which is the value of each item in the
+	  'items' property.
+
+	- Add note about status of the 2.x specification.
+
+
 2.0.1   2020-06-08  Released-By: PERLANCAR; Backward-Compatible: no
 
         - Revise.
