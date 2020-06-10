@@ -106,7 +106,7 @@ provide these methods:
 
 Usage:
 
- my $theme_class = ColorTheme::NAME->new([ %args ]);
+ my $ctheme_obj = ColorTheme::NAME->new([ %args ]);
 
 Constructor. Known arguments will depend on the particular theme class and must
 be specified in the color theme structure under the C<args> key.
@@ -115,7 +115,7 @@ be specified in the color theme structure under the C<args> key.
 
 Usage:
 
- my $theme_struct = $theme_class->get_struct;
+ my $ctheme_struct = $ctheme_obj->get_struct;
 
 Provide a method way of getting the L</color theme structure>. A client can also
 access the C<%THEME> package variable directly.
@@ -124,7 +124,7 @@ access the C<%THEME> package variable directly.
 
 Usage:
 
- my $theme_class_args = $theme_class->get_args;
+ my $args = $ctheme_obj->get_args;
 
 Provide a method way of getting the arguments to the constructor. The official
 implementation L<ColorThemeBase::Constructor> stores this in the 'args' key of
