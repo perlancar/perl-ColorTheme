@@ -115,6 +115,7 @@ be specified in the color theme structure under the C<args> key.
 
 Usage:
 
+ my $ctheme_struct = ColorTheme::NAME->get_struct;
  my $ctheme_struct = $ctheme_obj->get_struct;
 
 Provide a method way of getting the L</color theme structure>. A client can also
