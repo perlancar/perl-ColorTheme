@@ -57,10 +57,10 @@ accessible from the color theme structure.
 
 =head2 color theme class
 
-A Perl module in the C<ColorTheme::*> or C<SOME::APP::ColorTheme::*> namespace
-following this specification. A color theme class contains L</color theme
-structure> in its C<%THEME> package variable, as well as some required methods
-to access the information in the structure.
+A Perl module in the C<ColorTheme::*> namespace following this specification. A
+color theme class contains L</color theme structure> in its C<%THEME> package
+variable, as well as some required methods to access the information in the
+structure.
 
 A simple (L<static|/static color theme>) theme has all its information
 accessible from the color theme structure, so client can actually bypass the
@@ -92,9 +92,9 @@ See also: L</static color theme>.
 
 =head2 Color theme class
 
-A color theme class must be put in C<ColorTheme::> namespace, or for
-application-specific themes, in C<SOME::APP::ColorTheme::*>, where C<SOME::APP>
-is an application namespace.
+A color theme class must be put in C<ColorTheme::> namespace.
+Application-specific color themes should be put under
+C<ColorTheme::MODULE::NAME::*> or C<ColorTheme::APP::NAME::*>.
 
 The color theme class must declare a package hash variable named C<%THEME>
 containing the L<color theme structure|/Color theme structure>. It also must
