@@ -118,8 +118,9 @@ Usage:
  my $ctheme_struct = ColorTheme::NAME->get_struct;
  my $ctheme_struct = $ctheme_obj->get_struct;
 
-Provide a method way of getting the L</color theme structure>. A client can also
-access the C<%THEME> package variable directly.
+Provide a method way of getting the L</color theme structure>. Must also work as
+a static method. A client can also access the C<%THEME> package variable
+directly.
 
 =item * get_args
 
