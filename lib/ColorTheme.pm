@@ -1,5 +1,7 @@
 package ColorTheme;
 
+use strict;
+
 # AUTHORITY
 # DATE
 # DIST
@@ -11,6 +13,11 @@ package ColorTheme;
 =head1 DESCRIPTION
 
 This document specifies a way to create and use color themes.
+
+If you want a quick way to create a color theme module, modify an existing one
+for a specific application. For example, for L<JSON::Color>, see
+L<ColorTheme::JSON::Color::default_rgb> or
+L<ColorTheme::JSON::Color::bright256>.
 
 
 =head1 SPECIFICATION STATUS
