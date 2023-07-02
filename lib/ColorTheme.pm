@@ -1,6 +1,5 @@
+## no critic: TestingAndDebugging::ProhibitNoStrict
 package ColorTheme;
-
-use strict;
 
 # AUTHORITY
 # DATE
