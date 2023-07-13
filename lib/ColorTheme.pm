@@ -231,3 +231,6 @@ L<Color::Theme> is an older specification, superseded by this document.
 =head1 SEE ALSO
 
 L<DefHash>
+
+Somewhat related: L<BorderStyle> specification, because they are often used
+together in an application.
